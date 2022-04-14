@@ -1,0 +1,14 @@
+{
+  "name": "hush",
+  "version": "1.0.0",
+  "main": "main.js",
+  "repository": "https://github.com/iamayushanand/hush",
+  "author": "Ayush <iamayushanand@gmail.com>",
+  "license": "MIT",
+  "scripts":{
+	  "start":"electron ."
+  },
+  "devDependencies": {
+    "electron": "^18.0.3"
+  }
+}
