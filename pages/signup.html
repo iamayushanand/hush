@@ -59,7 +59,7 @@
 	submit.addEventListener("click", async (event) => {
 		event.preventDefault();
 		const password=document.getElementById("typePasswordX");
-		const hash=setPassword(password.value);	
+		const hash=await setPassword(password.value);	
 		ipcRenderer.send("password_set");
     });
     </script>
