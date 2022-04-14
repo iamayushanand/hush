@@ -5,10 +5,14 @@
   "repository": "https://github.com/iamayushanand/hush",
   "author": "Ayush <iamayushanand@gmail.com>",
   "license": "MIT",
-  "scripts":{
-	  "start":"electron ."
+  "scripts": {
+    "start": "electron ."
   },
   "devDependencies": {
     "electron": "^18.0.3"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "electron-store": "^8.0.1"
   }
 }
