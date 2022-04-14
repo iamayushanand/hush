@@ -35,29 +35,7 @@
       </table>
       -->
     <section >
-          <section class="vh-100 gradient-custom-2">
-
-              <div id="myDIV" class="header">
-                <h2>Your Passwords</h2>
-                <div id="takeInput">
-                  <input
-                    type="text"
-                    id="WebsiteName"
-                    placeholder="Please Enter Your Website Name"
-                  />
-                  <input
-                    type="text"
-                    id="UserName"
-                    placeholder="Please Enter Your UserName"
-                  />
-                  <input
-                    type="password"
-                    id="password"
-                    placeholder="Please Enter Your Password"
-                  />
-                </div>
-                </div>
-                <div onclick="newElement()" class="addBtn">Add</div>
+          <section class="gradient-custom-2">
                   <div class="container py-5 h-100">
                     <div class="row d-flex justify-content-center align-items-center h-100">
                       <div class="col-md-12 col-xl-10">
@@ -89,8 +67,84 @@
                       </div>
                     </div>
                   </div>
+                  <div class="container py-5 h-100">
+                    <div class="row d-flex justify-content-center align-items-center h-100">
+                      <div class="col-md-12 col-xl-10">
+
+                        <div class="card mask-custom">
+                          <div class="card-body p-4 text-white">
+
+			      <div id="myDIV" class="header">
+				<h2>Your Passwords</h2>
+				<div id="takeInput">
+				  <input
+				    type="text"
+				    id="WebsiteName"
+				    placeholder="Please Enter Your Website Name"
+				  />
+				  <input
+				    type="text"
+				    id="UserName"
+				    placeholder="Please Enter Your UserName"
+				  />
+				  <input
+				    type="password"
+				    id="password"
+				    placeholder="Please Enter Your Password"
+				  />
+				  <input type="submit" onclick="newElement()" class="addBtn"></input> 
+				</div>
+				</div>
+
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+		  <!--<div onclick="newElement()" class="addBtn">Add</div>--!>
                 </section>
   </body>
-  <script src = "../lib/site-updator.js">
+<!--  <script src = "../lib/site-updator.js">
+</script> --!>
+  <script>
+	const {getEntries,addEntry}=require('../lib/site-updator.js')	
+	entries=getEntries()
+	for(entry of entries){
+	  let website = entry["website"]
+	  let username = entry["username"]
+	  let password = entry["password"]
+	  var tab = document.getElementById('myTable');
+	  var row = document.createElement('tr');
+	  var cell_website = document.createElement('td');
+	  var cell_username = document.createElement('td');
+	  var cell_password = document.createElement('td');
+	  row.insertCell(0).append(website);
+	  row.insertCell(1).append(username);
+	  row.insertCell(2).append(password);
+	  row.insertCell(3).append("y/n");
+	  tab.append(row);
+	}
+	function newElement(){
+	  var tab = document.getElementById('myTable');
+	  var row = document.createElement('tr');
+	  var cell_website = document.createElement('td');
+	  var cell_username = document.createElement('td');
+	  var cell_password = document.createElement('td');
+	  let website = document.getElementById('WebsiteName').value;
+	  let username = document.getElementById('UserName').value;
+	  let password = document.getElementById('password').value;
+	  const newEntry = {
+	    "username" : username,
+	    "website" : website,
+	    "password" : password
+	  };
+	  addEntry(newEntry);
+	  row.insertCell(0).append(website);
+	  row.insertCell(1).append(username);
+	  row.insertCell(2).append(password);
+	  row.insertCell(3).append("y/n");
+	  tab.append(row); 
+	};
   </script>
 </html>

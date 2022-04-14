@@ -8,7 +8,7 @@ ipcMain.on("unauthenticated",async event=>{
 });
 
 ipcMain.on("authenticated",async event=>{
-	mainWindow.loadFile('pages/manager.html')
+	mainWindow.loadFile('pages/site_adder.html')
 });	
 
 ipcMain.on("password_set",async event=>{
