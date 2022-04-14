@@ -18,8 +18,8 @@
 
 		    <div class="mb-md-5 mt-md-4 pb-5">
 
-		      <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
-		      <p class="text-white-50 mb-5">Please enter your master password</p>
+		      <h2 class="fw-bold mb-2 text-uppercase">Set Master Password</h2>
+		      <p class="text-white-50 mb-5">Please set your master password</p>
 
 
 		      <div class="form-outline form-white mb-4" id="masterForm">
@@ -46,7 +46,8 @@
 	  </div>
 	</section>
     <script>
-	const {getSession,createSession} = require("../lib/session-manager");
+	const {getSession} = require("../lib/session-manager");
+	const {setPassword} = require("../lib/password-manager");
 	const {ipcRenderer}=require("electron");
 	const current_session=getSession();
 
@@ -58,11 +59,8 @@
 	submit.addEventListener("click", async (event) => {
 		event.preventDefault();
 		const password=document.getElementById("typePasswordX");
-		const session=await createSession(password.value);
-	    	if (session==null){
-			ipcRenderer.send("unauthenticated");
-		}
-		ipcRenderer.send("authenticated");
+		const hash=setPassword(password.value);	
+		ipcRenderer.send("password_set");
     });
     </script>
   </body>

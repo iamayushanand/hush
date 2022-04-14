@@ -8,8 +8,11 @@ ipcMain.on("unauthenticated",async event=>{
 });
 
 ipcMain.on("authenticated",async event=>{
-	
 	mainWindow.loadFile('pages/manager.html')
+});	
+
+ipcMain.on("password_set",async event=>{
+	mainWindow.loadFile('pages/index.html')
 });	
 
 function createWindow () {
